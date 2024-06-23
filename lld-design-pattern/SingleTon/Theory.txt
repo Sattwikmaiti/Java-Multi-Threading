@@ -1,0 +1,136 @@
+Concept: We can create only one object but use this object multiple times.
+Even if we try to create multiple objects , no new object wiill be created
+
+  public class Example{
+      public static void main(String[] args)
+      {
+        new Samposa ()
+      }
+  }
+
+
+  If the new keyword is called multiple times, new object will be created as Samposa Constructor 
+  is called ,
+
+
+  Soln 1 : Make the constructor private and make a function to call the construcntor
+
+   
+   public class Samosa{
+       
+       private Samosa (){
+
+       }
+
+       public Samosa getSamosa()
+       {
+          return new Samosa();   // again the same problem , anyone can invoke this function multiple times. 
+       }
+
+   }
+
+
+But we want to call getSamosa() without creating object from Main .java
+
+So we make this static → now this method can be called using class directly .no need to create a object to call this method.
+But Same issue stays still
+
+
+Next idea -> private  static Samosa samosa =null ;( static methods only static variable , which by defaults remains null )  . Private as no one can access from outside.
+
+
+
+ 
+   public class Samosa{
+        
+         private  static Samosa samosa =null ;
+       private Samosa (){
+
+       }
+
+       Public static Samosa getSamosa()
+        {
+            if(samosa==null) 
+                  return samosa= new Samosa() ; 
+           } 
+
+
+   }
+
+
+
+
+Main.java 
+
+package SingleTonDesignPattern;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Samosa s1 = Samosa.getSamosa();
+        Samosa s2 = Samosa.getSamosa();
+        Samosa s3 = Samosa.getSamosa();
+        System.out.println("s1 =>"+s1);
+        System.out.println("s2 =>"+s2);
+        System.out.println("s3 =>"+s3);
+        // s1.hashCode();
+        /*
+          s1 =>SingleTonDesignPattern.Samosa@7ad041f3
+           s2 =>SingleTonDesignPattern.Samosa@7ad041f3
+           s3 =>SingleTonDesignPattern.Samosa@7ad041f3
+
+           hashCode is same
+         
+         */
+
+
+    }
+    
+}
+
+
+This method is called **LAZY INITIALIZATION**, as when client needs the object , he creates the object by calling getSamosa()
+
+
+
+Second is **EAGER INITIALIZATION** where an object is by default initialized in the private samosa.
+Static initialization occurs at first always . So static variables get initialized whenever class gets loaded. So new jalebi() object will come immediately 
+
+package SingleTonDesignPattern;
+
+public class Jalebi {
+
+    private static Jalebi jalebi =new Jalebi();
+
+   
+
+    public static Jalebi getJalebi(){
+      
+        return jalebi;
+    }
+    
+}
+
+Main.java
+        System.out.println(Jalebi.getJalebi());
+         System.out.println(Jalebi.getJalebi());
+         // SingleTonDesignPattern.Jalebi@6b95977
+        //SingleTonDesignPattern.Jalebi@6b95977
+         // hashCode is same
+
+
+Problems with Eager Initalization :  
+
+Since objects get initialized when classes loads , hence a lot of time unused objects get created which can decrease the performance of the application.
+
+Now Problem with Lazy initialization is Threading .
+
+Suppose multiple threads try to create object ,Threads run concurrently. each thread  tries to invoke getSamosa().So they find that samosa variable is null . 
+So everytime new objects are formed whenever new threads are spawned.
+Hence ThreadSafety is a compromised here.
+
+You can Read about Multithreading in 
+Link : https://docs.google.com/document/d/1VOmdGVg0S2IzjjhX0ZGlecsqidQ68bdAI7SDrsHQCVc/edit#heading=h.yqd7tzsavvra
+
+
+ 
