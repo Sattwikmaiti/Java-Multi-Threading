@@ -1,0 +1,5 @@
+
+nano ./move_files.sh  
+Change DEST folder path . Save
+./move_files.sh FolderName Pattern(DC)  #command
+DC - Decorator pattern

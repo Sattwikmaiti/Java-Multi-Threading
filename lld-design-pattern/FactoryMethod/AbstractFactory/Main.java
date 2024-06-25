@@ -8,6 +8,8 @@ public class Main{
 	}
 
 	private static void testAbstractFactory() {
+
+		//passes a ComputerAbstractFactory object to getComputer method
 		Computer pc = ComputerFactory.getComputer(new PCFactory("2 GB","500 GB","2.4 GHz"));
 		Computer server = ComputerFactory.getComputer(new ServerFactory("16 GB","1 TB","2.9 GHz"));
 		//INComputer.java tostring() method gets called when System.out.println() is called
