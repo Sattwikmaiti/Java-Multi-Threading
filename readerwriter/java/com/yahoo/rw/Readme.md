@@ -37,9 +37,13 @@ Threads get executed in the following order :
 
 W R R R R R R R R R R W W W W
 
+
+
 Drawback :
 Reader Threads are given preference over Writer Threads. Hence, if lot of Readers are coming in compared to few Writers, Writer Threads will get starved.
 Starvation of Writer Threads can result in Reader Threads reading old(stale) data.
+
+
 Second Readers Writers Solution
 Running the Code :
 ReadersWriters Project -> stc/test/java -> com.yahoo.rw.solutions ->SecondReadersWritersTest.java
