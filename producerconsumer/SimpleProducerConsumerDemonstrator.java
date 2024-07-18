@@ -42,6 +42,14 @@ public class SimpleProducerConsumerDemonstrator {
 
     private void runProducerConsumer() {
         for (int i = 0; i < 2; i++) {
+            /*
+             * Thread producerThread = new Thread(new Runnable() {
+    @Override
+    public void run() {
+        produce(); // Calls the produce method of SimpleProducerConsumerDemonstrator
+    }
+});
+             */
             Thread producerThread = new Thread(this::produce);
             producerThread.start();
         }
