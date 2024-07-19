@@ -1,3 +1,5 @@
+
+//https://leetcode.com/problems/the-dining-philosophers/description/
 public class Dining {
     
     public static void main(String[] args) throws Exception {

@@ -1,6 +1,6 @@
 
 
-package LocksDemo;
+// package LocksDemo;
 import java.util.concurrent.locks.ReentrantLock;
 
 
