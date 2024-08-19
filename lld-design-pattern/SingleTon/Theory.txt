@@ -121,7 +121,7 @@ Main.java
 
 Problems with Eager Initalization :  
 
-Since objects get initialized when classes loads , hence a lot of time unused objects get created which can decrease the performance of the application.
+Since static objects get initialized when classes loads , hence a lot of time unused objects get created which can decrease the performance of the application.
 
 Now Problem with Lazy initialization is Threading .
 
