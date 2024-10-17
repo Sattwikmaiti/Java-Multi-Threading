@@ -2,7 +2,7 @@
 
 > Why Do You Need Decorator Pattern ? 
 
-Class Explosation . 
+Class Explosation . ]
 We have a base class. Now more type of topings come in the market ..more permutation compitions
 
 ![image](DC1.png)
