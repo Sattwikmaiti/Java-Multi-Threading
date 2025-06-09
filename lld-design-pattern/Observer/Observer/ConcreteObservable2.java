@@ -5,7 +5,7 @@ import java.util.List;
  
 
 
-public class ConcreteObservable2 implements Observable{
+public class ConcreteObservable2 implements Observable2{
 
     private List<Observer> observers = new ArrayList<>();
     private int initialStockdata;
@@ -36,12 +36,14 @@ public class ConcreteObservable2 implements Observable{
         }
       
         initialStockdata = initialStockdata+ stockCount;
+
+        
   
 }
 
     @Override
-    public int getData() {
-        return initialStockdata;
+    public void getData() {
+        System.out.println("Tshirt.()"+initialStockdata);
     }
 
 

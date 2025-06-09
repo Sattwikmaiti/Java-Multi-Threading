@@ -10,5 +10,5 @@ public interface Observable2 {
 
     void setData(int data);
 
-    int getData();
+    void getData();
 }

@@ -27,18 +27,20 @@ public class ConcreteObservable implements Observable{
     @Override
     public void setData(int stockCount) {
 //all was empty so we need to notify observers
-        if(initialStockdata==0)
-        {
-            notifyObservers();
-        }
+        // if(initialStockdata==0)
+        // {
+        //     notifyObservers();
+        // }
       
         initialStockdata = initialStockdata+ stockCount;
+        notifyObservers();
+
   
 }
 
     @Override
-    public int getData() {
-        return initialStockdata;
+    public void getData() {
+        System.out.println("Pants.()"+initialStockdata); 
     }
 
 

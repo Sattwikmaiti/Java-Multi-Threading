@@ -17,6 +17,11 @@ public class Main {
             ob2.addObserver(observer22);
             ob2.setData(2);
 
+          for(int i=0;i<5;i++)
+          {
+            ob1.setData(i);
+          }
+
 
     }
 }

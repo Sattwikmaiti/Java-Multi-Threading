@@ -14,11 +14,13 @@ public class ConcreteObserver  implements Observer{
     @Override
     public void update() {
        sendmail(email, "Product is available now");
+       observable.getData();
     }
      
 
     private void sendmail(String email,String message)
     {
         System.out.println("Email sent to "+email+" with message "+message);
+        
     }
 }

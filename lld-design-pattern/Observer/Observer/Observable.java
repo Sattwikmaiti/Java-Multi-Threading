@@ -2,6 +2,8 @@ package Observer.Observer;
 
 public interface Observable {
 
+
+     
     void addObserver(Observer observer);
 
     void removeObserver(Observer observer);
@@ -10,7 +12,7 @@ public interface Observable {
 
     void setData(int data);
 
-    int getData();
+    void getData();
 
     
 }
